@@ -36,23 +36,13 @@ export default class ApiTokenAuthApi {
 
 
     /**
-     * @param {String} username 
-     * @param {String} password 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.token 
+     * @param {module:model/AuthToken} opts.authToken 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AuthToken} and HTTP response
      */
-    createAuthTokenWithHttpInfo(username, password, opts) {
+    createAuthTokenWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling createAuthToken");
-      }
-      // verify the required parameter 'password' is set
-      if (password === undefined || password === null) {
-        throw new Error("Missing the required parameter 'password' when calling createAuthToken");
-      }
+      let postBody = opts['authToken'];
 
       let pathParams = {
       };
@@ -61,13 +51,10 @@ export default class ApiTokenAuthApi {
       let headerParams = {
       };
       let formParams = {
-        'username': username,
-        'password': password,
-        'token': opts['token']
       };
 
       let authNames = ['Authorization'];
-      let contentTypes = ['application/x-www-form-urlencoded', 'multipart/form-data', 'application/json'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = AuthToken;
       return this.apiClient.callApi(
@@ -78,14 +65,12 @@ export default class ApiTokenAuthApi {
     }
 
     /**
-     * @param {String} username 
-     * @param {String} password 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.token 
+     * @param {module:model/AuthToken} opts.authToken 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AuthToken}
      */
-    createAuthToken(username, password, opts) {
-      return this.createAuthTokenWithHttpInfo(username, password, opts)
+    createAuthToken(opts) {
+      return this.createAuthTokenWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

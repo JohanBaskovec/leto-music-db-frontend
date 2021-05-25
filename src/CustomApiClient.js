@@ -6,7 +6,7 @@ export class CustomApiClient extends ApiClient {
     super();
     this.defaultHeaders = {
     };
-    this.authentications['Authorization']['apiKeyPrefix'] = 'Token:';
+    this.authentications['Authorization']['apiKeyPrefix'] = 'Token';
     if (authorizationToken) {
       this.authentications['Authorization']['apiKey'] = authorizationToken;
     }

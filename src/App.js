@@ -17,36 +17,55 @@ const apiClient = new ApiApi(customApiClient);
 const authApiClient = new ApiTokenAuthApi(customApiClient);
 
 function App() {
+  const [fetchedUser, setFetchedUser] = useState(false);
   const [customApiClient, setCustomApiClient] = useState(new CustomApiClient());
   const [apiService, setApiService] = useState(new ApiApi(customApiClient));
   const [authApiService, setAuthApiService] = useState(new ApiTokenAuthApi(customApiClient));
   const [session, setSession] = useState({});
-  const login = (token) => {
+  const initializeApiServices = (token) => {
     const newApiClient = new CustomApiClient(token)
     setCustomApiClient(newApiClient);
     const newApiService = new ApiApi(newApiClient);
     setApiService(newApiService);
     setAuthApiService(new ApiTokenAuthApi(newApiClient));
-    const currentUser = newApiService.retrieveCurrentUser();
-    console.log(currentUser);
-    setSession({
-      token,
-      user: currentUser,
-    });
+    return newApiService;
   };
 
-  useEffect(() => {
-    async function login() {
-      const resp = await authApiService.createAuthToken({
-        authToken: {
-          username: 'admin',
-          password: 'password',
-        }
-      });
-    }
+  const logout = () => {
+    localStorage.removeItem('authorizationToken');
+    initializeApiServices(undefined);
+    setSession({});
+  };
 
-    login();
-  });
+  const login = (token) => {
+    (async () => {
+      localStorage.setItem('authorizationToken', token);
+
+      const newApiService = initializeApiServices(token);
+      const currentUser = await newApiService.retrieveCurrentUser();
+      if (currentUser.id != null) {
+        setSession({
+          user: currentUser,
+        });
+      }
+    })();
+  };
+  useEffect(() => {
+    const token = localStorage.getItem('authorizationToken');
+    (async () => {
+      if (token != null) {
+        await login(token);
+        setFetchedUser(true);
+      } else {
+        setFetchedUser(true);
+      }
+    })();
+  }, []);
+
+  if (!fetchedUser) {
+    return <div></div>
+  }
+
   return (
     <BrowserRouter>
       <div className='App'>
@@ -76,9 +95,9 @@ function App() {
                 </li>
                 {session.user ? (
                   <li className="nav-item">
-                    <Link to='/'
+                    <Link to='/' onClick={logout}
                           className="nav-link">
-                      Logout
+                      {session.user.username} Logout
                     </Link>
                   </li>
                 ) : (

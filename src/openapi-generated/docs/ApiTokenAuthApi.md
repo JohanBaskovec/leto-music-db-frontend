@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## createAuthToken
 
-> AuthToken createAuthToken(username, password, opts)
+> AuthToken createAuthToken(opts)
 
 
 
@@ -26,12 +26,10 @@ Authorization.apiKey = 'YOUR API KEY';
 //Authorization.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenapiJsClient.ApiTokenAuthApi();
-let username = "username_example"; // String | 
-let password = "password_example"; // String | 
 let opts = {
-  'token': "token_example" // String | 
+  'authToken': new OpenapiJsClient.AuthToken() // AuthToken | 
 };
-apiInstance.createAuthToken(username, password, opts).then((data) => {
+apiInstance.createAuthToken(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -44,9 +42,7 @@ apiInstance.createAuthToken(username, password, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**|  | 
- **password** | **String**|  | 
- **token** | **String**|  | [optional] 
+ **authToken** | [**AuthToken**](AuthToken.md)|  | [optional] 
 
 ### Return type
 
@@ -58,6 +54,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded, multipart/form-data, application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 

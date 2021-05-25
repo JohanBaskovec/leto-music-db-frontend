@@ -105,7 +105,7 @@ var defaultClient = OpenapiJsClient.ApiClient.instance;
 var Authorization = defaultClient.authentications['Authorization'];
 Authorization.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Authorization.apiKeyPrefix['Authentication'] = "Token"
+//Authorization.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new OpenapiJsClient.ApiApi()
 var opts = {
@@ -187,6 +187,6 @@ Class | Method | HTTP request | Description
 
 
 - **Type**: API key
-- **API key parameter name**: Authentication
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 
