@@ -355,9 +355,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this artist.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    destroyArtistWithHttpInfo(id) {
+    destroyArtistWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -368,6 +372,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -387,10 +393,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this artist.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    destroyArtist(id) {
-      return this.destroyArtistWithHttpInfo(id)
+    destroyArtist(id, opts) {
+      return this.destroyArtistWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -443,9 +452,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this band.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    destroyBandWithHttpInfo(id) {
+    destroyBandWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -456,6 +469,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -475,10 +490,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this band.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    destroyBand(id) {
-      return this.destroyBandWithHttpInfo(id)
+    destroyBand(id, opts) {
+      return this.destroyBandWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -623,6 +641,8 @@ export default class ApiApi {
     /**
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page A page number within the paginated result set.
+     * @param {String} opts.id id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
     listArtistsWithHttpInfo(opts) {
@@ -632,7 +652,9 @@ export default class ApiApi {
       let pathParams = {
       };
       let queryParams = {
-        'page': opts['page']
+        'page': opts['page'],
+        'id': opts['id'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -653,6 +675,8 @@ export default class ApiApi {
     /**
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page A page number within the paginated result set.
+     * @param {String} opts.id id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
      */
     listArtists(opts) {
@@ -666,6 +690,8 @@ export default class ApiApi {
     /**
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page A page number within the paginated result set.
+     * @param {String} opts.id id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
     listBandsWithHttpInfo(opts) {
@@ -675,7 +701,9 @@ export default class ApiApi {
       let pathParams = {
       };
       let queryParams = {
-        'page': opts['page']
+        'page': opts['page'],
+        'id': opts['id'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -696,6 +724,8 @@ export default class ApiApi {
     /**
      * @param {Object} opts Optional parameters
      * @param {Number} opts.page A page number within the paginated result set.
+     * @param {String} opts.id id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
      */
     listBands(opts) {
@@ -856,6 +886,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this artist.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Artist} opts.artist 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Artist} and HTTP response
      */
@@ -871,6 +903,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -891,6 +925,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this artist.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Artist} opts.artist 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Artist}
      */
@@ -954,6 +990,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this band.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Band} opts.band 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Band} and HTTP response
      */
@@ -969,6 +1007,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -989,6 +1029,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this band.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Band} opts.band 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Band}
      */
@@ -1099,9 +1141,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this artist.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Artist} and HTTP response
      */
-    retrieveArtistWithHttpInfo(id) {
+    retrieveArtistWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -1112,6 +1158,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -1131,10 +1179,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this artist.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Artist}
      */
-    retrieveArtist(id) {
-      return this.retrieveArtistWithHttpInfo(id)
+    retrieveArtist(id, opts) {
+      return this.retrieveArtistWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1187,9 +1238,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this band.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Band} and HTTP response
      */
-    retrieveBandWithHttpInfo(id) {
+    retrieveBandWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -1200,6 +1255,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -1219,10 +1276,13 @@ export default class ApiApi {
 
     /**
      * @param {String} id A unique integer value identifying this band.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Band}
      */
-    retrieveBand(id) {
-      return this.retrieveBandWithHttpInfo(id)
+    retrieveBand(id, opts) {
+      return this.retrieveBandWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1417,6 +1477,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this artist.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Artist} opts.artist 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Artist} and HTTP response
      */
@@ -1432,6 +1494,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -1452,6 +1516,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this artist.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Artist} opts.artist 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Artist}
      */
@@ -1515,6 +1581,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this band.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Band} opts.band 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Band} and HTTP response
      */
@@ -1530,6 +1598,8 @@ export default class ApiApi {
         'id': id
       };
       let queryParams = {
+        'id': opts['id2'],
+        'id__in': opts['idIn']
       };
       let headerParams = {
       };
@@ -1550,6 +1620,8 @@ export default class ApiApi {
     /**
      * @param {String} id A unique integer value identifying this band.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.id2 id
+     * @param {String} opts.idIn id__in
      * @param {module:model/Band} opts.band 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Band}
      */

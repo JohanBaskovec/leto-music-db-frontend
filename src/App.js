@@ -1,16 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {
-  Switch,
-  Route,
-  Link, BrowserRouter
-} from "react-router-dom";
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import './App.css';
 import {ApiApi, ApiTokenAuthApi} from "./openapi-generated/src";
 import {CustomApiClient} from "./CustomApiClient.js";
-import {useForm} from "react-hook-form";
-import Button from 'react-bootstrap/Button';
 import {Login} from "./Login.js";
+import {AlbumList} from "./AlbumList.js";
 
 const customApiClient = new CustomApiClient();
 const apiClient = new ApiApi(customApiClient);
@@ -138,34 +132,5 @@ function App() {
   );
 }
 
-
-function AlbumList(props) {
-  const [albums, setAlbums] = useState([]);
-  const session = props.session;
-  const apiClient = props.apiClient;
-  useEffect(() => {
-    (async () => {
-      const albums = await apiClient.listAlbums();
-      setAlbums(albums.results);
-    })();
-  }, []);
-  useEffect(() => {
-    (async () => {
-      /*
-            const albums = await apiClient.listAlbumReviews({});
-            setAlbums(albums.results);
-      */
-    })();
-  }, [albums])
-
-  return <div>
-    {albums.map((album) => (
-      <div>
-        {album.name}
-      </div>
-    ))
-    }
-  </div>
-}
 
 export default App;

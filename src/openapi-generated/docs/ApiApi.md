@@ -394,7 +394,7 @@ null (empty response body)
 
 ## destroyArtist
 
-> destroyArtist(id)
+> destroyArtist(id, opts)
 
 
 
@@ -411,7 +411,11 @@ Authorization.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this artist.
-apiInstance.destroyArtist(id).then(() => {
+let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example" // String | id__in
+};
+apiInstance.destroyArtist(id, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -425,6 +429,8 @@ apiInstance.destroyArtist(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this artist. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
 
 ### Return type
 
@@ -490,7 +496,7 @@ null (empty response body)
 
 ## destroyBand
 
-> destroyBand(id)
+> destroyBand(id, opts)
 
 
 
@@ -507,7 +513,11 @@ Authorization.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this band.
-apiInstance.destroyBand(id).then(() => {
+let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example" // String | id__in
+};
+apiInstance.destroyBand(id, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -521,6 +531,8 @@ apiInstance.destroyBand(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this band. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
 
 ### Return type
 
@@ -709,7 +721,9 @@ Authorization.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenapiJsClient.ApiApi();
 let opts = {
-  'page': 56 // Number | A page number within the paginated result set.
+  'page': 56, // Number | A page number within the paginated result set.
+  'id': "id_example", // String | id
+  'idIn': "idIn_example" // String | id__in
 };
 apiInstance.listArtists(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -725,6 +739,8 @@ apiInstance.listArtists(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Number**| A page number within the paginated result set. | [optional] 
+ **id** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
 
 ### Return type
 
@@ -759,7 +775,9 @@ Authorization.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenapiJsClient.ApiApi();
 let opts = {
-  'page': 56 // Number | A page number within the paginated result set.
+  'page': 56, // Number | A page number within the paginated result set.
+  'id': "id_example", // String | id
+  'idIn': "idIn_example" // String | id__in
 };
 apiInstance.listBands(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -775,6 +793,8 @@ apiInstance.listBands(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Number**| A page number within the paginated result set. | [optional] 
+ **id** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
 
 ### Return type
 
@@ -968,6 +988,8 @@ Authorization.apiKey = 'YOUR API KEY';
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this artist.
 let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example", // String | id__in
   'artist': new OpenapiJsClient.Artist() // Artist | 
 };
 apiInstance.partialUpdateArtist(id, opts).then((data) => {
@@ -984,6 +1006,8 @@ apiInstance.partialUpdateArtist(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this artist. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
  **artist** | [**Artist**](Artist.md)|  | [optional] 
 
 ### Return type
@@ -1072,6 +1096,8 @@ Authorization.apiKey = 'YOUR API KEY';
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this band.
 let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example", // String | id__in
   'band': new OpenapiJsClient.Band() // Band | 
 };
 apiInstance.partialUpdateBand(id, opts).then((data) => {
@@ -1088,6 +1114,8 @@ apiInstance.partialUpdateBand(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this band. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
  **band** | [**Band**](Band.md)|  | [optional] 
 
 ### Return type
@@ -1208,7 +1236,7 @@ Name | Type | Description  | Notes
 
 ## retrieveArtist
 
-> Artist retrieveArtist(id)
+> Artist retrieveArtist(id, opts)
 
 
 
@@ -1225,7 +1253,11 @@ Authorization.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this artist.
-apiInstance.retrieveArtist(id).then((data) => {
+let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example" // String | id__in
+};
+apiInstance.retrieveArtist(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1239,6 +1271,8 @@ apiInstance.retrieveArtist(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this artist. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
 
 ### Return type
 
@@ -1304,7 +1338,7 @@ Name | Type | Description  | Notes
 
 ## retrieveBand
 
-> Band retrieveBand(id)
+> Band retrieveBand(id, opts)
 
 
 
@@ -1321,7 +1355,11 @@ Authorization.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this band.
-apiInstance.retrieveBand(id).then((data) => {
+let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example" // String | id__in
+};
+apiInstance.retrieveBand(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1335,6 +1373,8 @@ apiInstance.retrieveBand(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this band. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
 
 ### Return type
 
@@ -1570,6 +1610,8 @@ Authorization.apiKey = 'YOUR API KEY';
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this artist.
 let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example", // String | id__in
   'artist': new OpenapiJsClient.Artist() // Artist | 
 };
 apiInstance.updateArtist(id, opts).then((data) => {
@@ -1586,6 +1628,8 @@ apiInstance.updateArtist(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this artist. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
  **artist** | [**Artist**](Artist.md)|  | [optional] 
 
 ### Return type
@@ -1674,6 +1718,8 @@ Authorization.apiKey = 'YOUR API KEY';
 let apiInstance = new OpenapiJsClient.ApiApi();
 let id = "id_example"; // String | A unique integer value identifying this band.
 let opts = {
+  'id2': "id_example", // String | id
+  'idIn': "idIn_example", // String | id__in
   'band': new OpenapiJsClient.Band() // Band | 
 };
 apiInstance.updateBand(id, opts).then((data) => {
@@ -1690,6 +1736,8 @@ apiInstance.updateBand(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| A unique integer value identifying this band. | 
+ **id2** | **String**| id | [optional] 
+ **idIn** | **String**| id__in | [optional] 
  **band** | [**Band**](Band.md)|  | [optional] 
 
 ### Return type
