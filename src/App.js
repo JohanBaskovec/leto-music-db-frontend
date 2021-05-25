@@ -5,6 +5,9 @@ import {ApiApi, ApiTokenAuthApi} from "./openapi-generated/src";
 import {CustomApiClient} from "./CustomApiClient.js";
 import {Login} from "./Login.js";
 import {AlbumList} from "./AlbumList.js";
+import {AlbumPage} from "./AlbumPage.js";
+import {AlbumReviewFormPage, CreateAlbumReviewPage, EditAlbumReviewPage} from "./AlbumReviewFormPage.js";
+
 
 const customApiClient = new CustomApiClient();
 const apiClient = new ApiApi(customApiClient);
@@ -117,10 +120,19 @@ function App() {
         <div className="container">
           <Switch>
             <Route path='/music'>
-              <AlbumList apiClient={apiService} session={session}/>
+              <AlbumList apiService={apiService} session={session}/>
             </Route>
             <Route path='/login'>
               <Login authApiService={authApiService} session={session} login={login}/>
+            </Route>
+            <Route path='/albums/:albumId'>
+              <AlbumPage session={session} apiService={apiService}/>
+            </Route>
+            <Route path='/album-reviews/:albumReviewId/edit'>
+              <EditAlbumReviewPage session={session} apiService={apiService}/>
+            </Route>
+            <Route path='/album-reviews/create'>
+              <CreateAlbumReviewPage session={session} apiService={apiService}/>
             </Route>
             <Route path='/'>
               Blog

@@ -1,1 +1,1 @@
-npx @openapitools/openapi-generator-cli generate -i ../django_blog/openapi-schema.yml -g javascript -o src/openapi-generated --additional-properties=usePromises=true
+npx @openapitools/openapi-generator-cli generate -i ./src/openapi-schema.json -g javascript -o src/openapi-generated --additional-properties=usePromises=true

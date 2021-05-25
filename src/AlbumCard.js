@@ -4,24 +4,24 @@ import "./AlbumCard.css";
 
 
 export function AlbumCard({album, bands, artists, currentUserReview}) {
-  const getAlbumLeaderBands = (album) => {
+  const getAlbumLeaderBands = () => {
     if (bands) {
       return bands.map(band => {
-        return <Link to={'/band/' + band.id}>{band.name}</Link>;
+        return <Link to={'/bands/' + band.id}>{band.name}</Link>;
       })
     }
     return [];
   };
-  const getAlbumLeaderArtists = (album) => {
+  const getAlbumLeaderArtists = () => {
     if (artists) {
       return artists.map(artist => {
-        return <Link to={'/artist/' + artist.id}>{artist.name}</Link>;
+        return <Link to={'/artists/' + artist.id}>{artist.name}</Link>;
       })
     }
     return [];
   };
 
-  const getAlbumLeadersList = (album) => {
+  const getAlbumLeadersList = () => {
     const leaders = getAlbumLeaderBands(album).concat(getAlbumLeaderArtists(album));
     if (leaders.length === 0) {
       return ['Unknown artist'];
@@ -39,9 +39,9 @@ export function AlbumCard({album, bands, artists, currentUserReview}) {
     </div>
   }
   return <div className='AlbumCard'>
-    <h4 className='AlbumCard__title'><Link to={'/album' + album.id}>{album.name}</Link></h4>
+    <h4 className='AlbumCard__title'><Link to={'/albums/' + album.id}>{album.name}</Link></h4>
     {
-      getAlbumLeadersList(album)
+      getAlbumLeadersList()
     }
 
     {currentUserReview ?
